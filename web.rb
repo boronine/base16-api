@@ -2,7 +2,7 @@ require 'sinatra'
 require "securerandom"
 require "erb"
 
-require 'base16'
+require './base16'
 
 get '/vim' do
   template_file = 'vim/vim.erb'
