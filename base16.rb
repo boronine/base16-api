@@ -153,19 +153,3 @@ class Theme
 
 end
 
-help_message = <<-EOF
-Base16 Builder v0.1
-https://github.com/chriskempson/base16-builder
-
-usage: base16               build all schemes
-   or: base16 scheme.yml    build specified scheme
-EOF
-
-case ARGV[0]
-  when "--help"
-      puts help_message
-  when "-h"
-      puts help_message
-  else
-    Theme.new.build(ARGV[0])
-end
