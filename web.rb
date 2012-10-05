@@ -4,26 +4,13 @@ require "erb"
 
 require './base16'
 
-get '/vim' do
-  template_file = 'vim/vim.erb'
-  scheme_data = {
-    "base00" => "151515",
-    "base01" => "202020",
-    "base02" => "303030",
-    "base03" => "505050",
-    "base04" => "b0b0b0",
-    "base05" => "d0d0d0",
-    "base06" => "e0e0e0",
-    "base07" => "f5f5f5",
-    "base08" => "ac4142",
-    "base09" => "d28445",
-    "base0A" => "f4bf75",
-    "base0B" => "90a959",
-    "base0C" => "75b5aa",
-    "base0D" => "6a9fb5",
-    "base0E" => "aa759f",
-    "base0F" => "8f5536"
-  }
+get '/:temp' do
+  temp = params[:temp]
+  if temp == 'vim'
+    template_file = 'vim/vim.erb'
+  elsif temp == 'textmate'
+    template_file = 'textmate/dark.tmTheme.erb'
+  end
   scheme_data = params
   theme = Theme.new
   # Define ERB vars
@@ -46,6 +33,13 @@ get '/vim' do
   template_contents = theme.read_template_file(template_file)
   parsed = ERB.new(template_contents)
 
-  attachment "random.vim"
+  if temp == 'vim'
+    attachment "random.vim"
+  elsif temp == 'textmate'
+    attachment 'random.tmTheme'
+  end
+
+  uuid = '0'
+
   return parsed.result(binding)
 end
