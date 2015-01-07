@@ -1,27 +1,3 @@
-# Base16 Builder
-Easily build color variations of Base16 with YAML scheme definitions and ERB templates. 
+# base16-api
 
-## Usage
-    > ./base16
-Build all schemes
-
-    > ./base16 default.yml
-Build only the "default" theme
-
-## Templates
-* HTML Preview
-* Vim
-* TextMate
-* iTerm 2
-* XFCE4 Terminal 
-* Mou
-* Escape Code Shell Script
-* Rouge
-* Gnome Terminal
-
-## Contributors
-* [chriskempson](https://github.com/chriskempson) - HTML Preview, Vim, TextMate, iTerm 2, XFCE4 Terminal, Mou, Escape Code Shell Script, Gnome Terminal
-* [jayferd](https://github.com/jayferd) - Rouge
-
-## License
-Base16 Builder is released under the [MIT License](https://github.com/chriskempson/base16-builder/blob/master/LICENSE.md)
+This is a fork of Chris Kempson's base16-builder that enables a simple web API.
